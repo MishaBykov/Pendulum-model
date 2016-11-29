@@ -66,8 +66,10 @@ class Pendulum extends JComponent implements ActionListener
         double dobx = Math.cos(angle-Math.PI/2) * scale*rku.getParameters(4) + dx;
         double doby = -Math.sin(angle-Math.PI/2) * scale*rku.getParameters(4) + dy;
 //        System.out.println(scale+" "+dobx + " " + doby);
-        Line2D.Double line = new Line2D.Double(dx + scale*rku.suspensionX(), dy + scale*rku.suspensionY(), dobx + scale*rku.suspensionX(), doby + scale*rku.suspensionY());
-        Ellipse2D.Double el = new Ellipse2D.Double(dobx + scale*rku.suspensionX() -scale/20*rku.getParameters(3), doby + scale*rku.suspensionY() -scale/20*rku.getParameters(3), scale/10*rku.getParameters(3), scale/10*rku.getParameters(3));
+        Line2D.Double line = new Line2D.Double(dx + scale*rku.suspensionX(), dy - scale*rku.suspensionY(),
+                dobx + scale*rku.suspensionX(), doby + scale*rku.suspensionY());
+        Ellipse2D.Double el = new Ellipse2D.Double(dobx + scale*rku.suspensionX() -scale/20*rku.getParameters(3),
+                doby + scale*rku.suspensionY() -scale/20*rku.getParameters(3), scale/10*rku.getParameters(3), scale/10*rku.getParameters(3));
         g2d.draw(line);
         g2d.fill(el);
 
